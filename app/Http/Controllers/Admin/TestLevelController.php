@@ -6,31 +6,17 @@ use App\Models\TestLevel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Yajra\DataTables\DataTables;
-
 
 class TestLevelController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->ajax()) {
-            $data = TestLevel::select(['id', 'name', 'description', 'slug']);
-            return DataTables::of($data)
-                ->addIndexColumn()
-                ->addColumn('action', function($row){
-                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
-                    $btn .= '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
-                    return $btn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
-        }
-    
+        $data['testLevels'] = TestLevel::all();
 
-        return view('admin.test-level.index');
+        return view('admin.test-level.index',$data);
     }
 
     /**

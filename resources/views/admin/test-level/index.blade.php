@@ -2,14 +2,6 @@
 
 @section('title', 'Test Level')
 
-
-
-@section('css')
-    {{-- DataTables CSS --}}
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-@stop
-
-
 @section('content_header')
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -19,8 +11,9 @@
     </nav>
 @stop
 
-
 @section('content')
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -28,14 +21,14 @@
                     <div class="card-header">
                         <h3 class="card-title">Test Level | Category</h3>
                         <div class="card-tools">
-                            <a href="{{ route('testcourse.create') }}" class="btn btn-primary">Add New
+                            <a href="{{ route('test.create') }}" class="btn btn-primary">Add New
                                 <i class="fas fa-plus"></i>
                             </a>
                         </div>
                     </div>
                     <div class="card-body">
-                        <table id="testLevelTable" class="table table-bordered table-hover">
-                            <thead class="text-center">
+                        <table class="table table-bordered">
+                            <thead class=" text-center">
                                 <tr>
                                     <th>SL</th>
                                     <th>Test Level</th>
@@ -45,56 +38,67 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($testLevels as $testlevel)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $testlevel->name }}</td>
+                                        <td>{{ $testlevel->description }}</td>
+                                        <td>{{ $testlevel->slug }}</td>
+                                        <td class=" d-flex align-items-center justify-content-around">
+                                            <a href="" class="tn btn-sm btn-primary">Edit
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <form action="" method="post" style="display: inline-block;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">Delete
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
-@stop
-
-@section('js')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#testLevelTable').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('test.index') }}", // Your correct route
-                columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex',
-                        orderable: false,
-                        searchable: false
-                    }, // SL Column
-                    {
-                        data: 'name',
-                        name: 'name'
-                    },
-                    {
-                        data: 'description',
-                        name: 'description'
-                    },
-                    {
-                        data: 'slug',
-                        name: 'slug'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ]
-
+    @endsection
+    @section('script')
+        <script>
+            $(document).ready(function() {
+                $('#myTable').DataTable();
             });
+        </script>
 
 
-        });
-    </script>
-@stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @stop
+
+    @section('css')
+        {{-- Add here extra stylesheets --}}
+        {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    @stop
+
+    @section('js')
+        <script>
+            console.log("Hi, I'm using the Laravel-AdminLTE package!");
+        </script>
+    @stop

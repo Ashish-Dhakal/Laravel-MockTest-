@@ -13,14 +13,6 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('test_levels_id')->nullable();
-            $table->foreign('test_levels_id')->references('id')->on('test_levels');
-            $table->unsignedBigInteger('test_courses_id')->nullable();
-            $table->foreign('test_courses_id')->references('id')->on('test_courses');
-            $table->string('question');
-            $table->json('options')->nullable();
-            $table->string('answer');
-            $table->string('answer_explain');
             $table->timestamps();
         });
     }

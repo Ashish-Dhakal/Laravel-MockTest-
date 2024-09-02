@@ -6,7 +6,7 @@
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Test Question</li>
+            <li class="breadcrumb-item active" aria-current="page">Test Level | Category</li>
         </ol>
     </nav>
 @stop
@@ -19,9 +19,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Test Question</h3>
+                        <h3 class="card-title">Test Level | Category</h3>
                         <div class="card-tools">
-                            <a href="{{ route('testquestion.create') }}" class="btn btn-primary">Add New
+                            <a href="{{ route('test.create') }}" class="btn btn-primary">Add New
                                 <i class="fas fa-plus"></i>
                             </a>
                         </div>
@@ -38,7 +38,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($testLevels as $testlevel)
+                                @foreach ($testLevels as $testlevel)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $testlevel->name }}</td>
@@ -57,7 +57,7 @@
                                             </form>
                                         </td>
                                     </tr>
-                                @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
