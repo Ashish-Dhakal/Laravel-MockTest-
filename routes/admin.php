@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\TestCourseController;
 use App\Http\Controllers\Admin\TestLevelController;
 use Illuminate\Support\Facades\Auth;
@@ -23,11 +24,11 @@ Route::get('/testcourse',[TestCourseController::class , 'index'])->name('testcou
 Route::get('/testcourse/create',[TestCourseController::class , 'create'])->name('testcourse.create');
 Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('testcourse.store');
 
+Route::get('/testquestion',[QuestionController::class , 'index'])->name('testquestion.index');
+Route::get('/testquestion/create',[QuestionController::class , 'create'])->name('testquestion.create');
+Route::post('/testquestion/store',[QuestionController::class , 'store'])->name('testquestion.store');
 
-Route::get('/testcourse',[TestCourseController::class , 'index'])->name('testcourse.index');
-Route::get('/testcourse/create',[TestCourseController::class , 'create'])->name('testcourse.create');
-Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('testcourse.store');
-
+Route::get('/mocktest',[QuestionController::class , 'index'])->name('mocktest.index');
 
 
 

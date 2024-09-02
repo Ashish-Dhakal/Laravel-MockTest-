@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('test_levels_id')->nullable();
             $table->foreign('test_levels_id')->references('id')->on('test_levels');
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('question');
             $table->json('options')->nullable();
             $table->string('answer');
-            $table->string('answer_explain');
+            $table->text('reason');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('questions');
     }
 };

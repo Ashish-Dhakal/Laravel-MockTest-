@@ -1,14 +1,18 @@
 @extends('adminlte::page')
 
-@section('title', 'Test Level')
+@section('title', 'Test Course')
 
 @section('content_header')
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Test Level | Category</li>
+            <li class="breadcrumb-item active" aria-current="page">Test Course</li>
         </ol>
     </nav>
+@stop
+@section('css')
+    {{-- Add here extra stylesheets --}}
+    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 @stop
 
 @section('content')
@@ -42,7 +46,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $testCourse->name }}</td>
-                                        <td>{{ $testCourse->testlevel->name}}</td>
+                                        <td>{{ $testCourse->testlevel->name }}</td>
                                         <td>{{ $testCourse->slug }}</td>
                                         <td class=" d-flex align-items-center justify-content-around">
                                             <a href="" class="tn btn-sm btn-primary">Edit
@@ -65,40 +69,11 @@
             </div>
         </div>
     @endsection
+
     @section('script')
         <script>
             $(document).ready(function() {
                 $('#myTable').DataTable();
             });
-        </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @stop
-
-    @section('css')
-        {{-- Add here extra stylesheets --}}
-        {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-    @stop
-
-    @section('js')
-        <script>
-            console.log("Hi, I'm using the Laravel-AdminLTE package!");
         </script>
     @stop
