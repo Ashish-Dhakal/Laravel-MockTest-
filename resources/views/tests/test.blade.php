@@ -153,13 +153,30 @@
     </style>
 @stop
 
+
 @section('js')
     <script>
         $(document).ready(function() {
+            // Mark question as answered when an option is selected
             $('input[type="radio"]').on('change', function() {
                 var questionId = $(this).closest('.question').data('question');
                 $('#q' + questionId).css('background-color', 'green'); // Mark as answered
+                $('#q' + questionId).css('color', 'white'); // Mark as answered
+            });
+
+            // Scroll to the corresponding question when a number is clicked
+            $('.question-number').on('click', function() {
+                var questionId = $(this).attr('id').replace('q', ''); // Get the question number from id
+                var questionElement = $('div[data-question="' + questionId +
+                '"]'); // Find the corresponding question
+
+                // Scroll the questions container to the question
+                $('.questions-container').animate({
+                    scrollTop: $('.questions-container').scrollTop() + questionElement.position()
+                        .top - $('.questions-container').position().top
+                }, 600); // Smooth scroll
             });
         });
     </script>
 @stop
+‰
