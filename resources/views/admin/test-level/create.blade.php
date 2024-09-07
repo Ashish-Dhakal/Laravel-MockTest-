@@ -21,14 +21,14 @@
                     <div class="card-header">
                         <h3 class="card-title">Test Level | Category</h3>
                         <div class="card-tools">
-                            <a href="{{ route('test.index') }}" class="btn btn-primary">Back
+                            <a href="{{ route('testlevel.index') }}" class="btn btn-primary">Back
                                 <i class="   fas fa-arrow-left"></i> </a>
 
                             </a>
                         </div>
                     </div>
                     {{-- form to create the test level / category --}}
-                    <form action="{{ route('test.store') }}" method="POST">
+                    <form action="{{ route('testlevel.store') }}" method="POST">
                         @csrf
 
                         {{-- display the error message if data is not saved --}}

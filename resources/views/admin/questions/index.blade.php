@@ -21,7 +21,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Test Level | Category</h3>
                         <div class="card-tools">
-                            <a href="{{ route('testlevel.create') }}" class="btn btn-primary">Add New
+                            <a href="" class="btn btn-primary">Add New
                                 <i class="fas fa-plus"></i>
                             </a>
                         </div>
@@ -31,19 +31,30 @@
                             <thead class=" text-center">
                                 <tr>
                                     <th>SL</th>
-                                    <th>Test Level</th>
-                                    <th>Description</th>
-                                    <th>Slug</th>
-                                    <th>Action</th>
+                                    <th>level name</th>
+                                    <th>course name</th>
+                                    <th>question</th>
+                                    <th>options</th>
+                                    <th>answer</th>
+                                    <th>reason</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($testLevels as $testlevel)
+                                {{-- {{$questions}} --}}
+                                @foreach ($questions as $question)
                                     <tr>
+                                        {{-- {{$questions}} --}}
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $testlevel->name }}</td>
-                                        <td>{{ $testlevel->description }}</td>
-                                        <td>{{ $testlevel->slug }}</td>
+                                        <td>{{ $question->testLevel->name }}</td>
+                                        <td>{{ $question->testCourse->name }}</td>
+                                        <td>{{ $question->question }}</td>
+                                        <td> <strong>A:</strong>{{ $question->options['A'] }} <br>
+                                            <strong>B:</strong> {{ $question->options['B'] }} <br>
+                                            <strong>C:</strong> {{ $question->options['C'] }} <br>
+                                            <strong>D:</strong> {{ $question->options['D'] }} <br>
+                                        </td>
+                                        <td>{{ $question->answer }}</td>
+                                        <td>{{ $question->reason }}</td>
                                         <td class=" d-flex align-items-center justify-content-around">
                                             <a href="" class="tn btn-sm btn-primary">Edit
                                                 <i class="fas fa-edit"></i>

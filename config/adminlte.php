@@ -325,7 +325,7 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'Test Level',
-            'url' => 'test/',
+            'url' => 'testlevel/',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
@@ -335,7 +335,7 @@ return [
         ],
         [
             'text' => 'Subject Question',
-            'url' => 'testcourse/',
+            'url' => 'question/',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [

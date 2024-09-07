@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Question;
 use App\Models\TestCourse;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
@@ -15,6 +16,11 @@ class TestLevel extends Model
     public function testcourses()
     {
         return $this->hasMany(TestCourse::class);
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class, 'test_levels_id');
     }
 
     protected static function boot()

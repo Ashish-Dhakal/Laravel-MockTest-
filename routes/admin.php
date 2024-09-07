@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\TestCourseController;
 use App\Http\Controllers\Admin\TestLevelController;
+use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +17,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // route for test level or category 
 
-Route::get('/test',[TestLevelController::class , 'index'])->name('test.index');
-Route::get('/test/create',[TestLevelController::class , 'create'])->name('test.create');
-Route::post('/test/store',[TestLevelController::class , 'store'])->name('test.store');
+Route::get('/testlevel',[TestLevelController::class , 'index'])->name('testlevel.index');
+Route::get('/testlevel/create',[TestLevelController::class , 'create'])->name('testlevel.create');
+Route::post('/testlevel/store',[TestLevelController::class , 'store'])->name('testlevel.store');
 
 Route::get('/testcourse',[TestCourseController::class , 'index'])->name('testcourse.index');
 Route::get('/testcourse/create',[TestCourseController::class , 'create'])->name('testcourse.create');
@@ -27,6 +29,11 @@ Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('
 Route::get('/testcourse',[TestCourseController::class , 'index'])->name('testcourse.index');
 Route::get('/testcourse/create',[TestCourseController::class , 'create'])->name('testcourse.create');
 Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('testcourse.store');
+
+
+Route::get('/question',[QuestionController::class , 'index'])->name('question.index');
+Route::get('/question/create',[QuestionController::class , 'create'])->name('question.create');
+Route::post('/question/store',[QuestionController::class , 'store'])->name('question.store');
 
 
 
