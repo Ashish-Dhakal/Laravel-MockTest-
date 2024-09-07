@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Mock Test',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -336,6 +336,11 @@ return [
         [
             'text' => 'Subject Question',
             'url' => 'question/',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Test',
+            'url' => 'test/',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [

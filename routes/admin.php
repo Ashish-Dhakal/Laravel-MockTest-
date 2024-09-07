@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\TestController;
 use App\Http\Controllers\Admin\TestCourseController;
 use App\Http\Controllers\Admin\TestLevelController;
 use App\Models\Question;
@@ -26,9 +27,9 @@ Route::get('/testcourse/create',[TestCourseController::class , 'create'])->name(
 Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('testcourse.store');
 
 
-Route::get('/testcourse',[TestCourseController::class , 'index'])->name('testcourse.index');
-Route::get('/testcourse/create',[TestCourseController::class , 'create'])->name('testcourse.create');
-Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('testcourse.store');
+Route::get('/test',[TestController::class , 'index'])->name('test.index');
+// Route::get('/testcourse/create',[TestCourseController::class , 'create'])->name('testcourse.create');
+// Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('testcourse.store');
 
 
 Route::get('/question',[QuestionController::class , 'index'])->name('question.index');
