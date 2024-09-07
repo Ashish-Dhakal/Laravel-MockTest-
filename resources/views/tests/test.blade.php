@@ -3,8 +3,8 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    {{-- <h1>Test</h1> --}}
-    <div class="row mb-3">
+       <!-- Timer and Attempt Counter Bar -->
+       <div class="row mb-3">
         <div class="col-md-12">
             <div class="timer-bar d-flex justify-content-between align-items-center p-3 bg-light border rounded">
                 <div>
@@ -23,8 +23,7 @@
 
 @section('content')
     <div class="container">
-        <!-- Timer and Attempt Counter Bar -->
-   
+  
 
         <div class="row">
             <!-- Questions and Options (Scrollable Section) -->
@@ -97,7 +96,7 @@
         }
 
         .question-numbers-container {
-            /* position: fixed; */
+            position: fixed;
             right: 20px;
             width: 300px;
             background-color: #f1f1f1;
@@ -167,13 +166,13 @@
             let totalTime = 0;
             let attempted = 0;
             const totalQuestions = {{ count($questions) }};
+            let timerStarted = false;
 
             // Update the timer display
             function updateTimerDisplay() {
                 let minutes = Math.floor(totalTime / 60);
                 let seconds = totalTime % 60;
-                $('#timer-display').text(
-                    `Time: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
+                $('#timer-display').text(`Time: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
             }
 
             // Start the timer
@@ -193,14 +192,22 @@
             $('#start-timer-btn').on('click', function() {
                 if ($(this).text() === 'Start Timer') {
                     $(this).text('Stop Timer');
+                    timerStarted = true;
                     startTimer();
-                    $('input[type="radio"]').prop('disabled',
-                    false); // Enable options after the timer starts
+                    $('input[type="radio"]').prop('disabled', false); // Enable options after the timer starts
                 } else {
-                    $(this).text('Start Timer');
-                    stopTimer();
-                    $('input[type="radio"]').prop('disabled',
-                    true); // Optionally disable options if timer is stopped
+                    // Check if there are any unanswered questions
+                    if (attempted < totalQuestions) {
+                        if (confirm("You haven't answered all questions. Do you want to proceed?")) {
+                            $(this).text('Submit Answer');
+                            stopTimer();
+                            $('input[type="radio"]').prop('disabled', true); // Disable options
+                        }
+                    } else {
+                        $(this).text('Submit Answer');
+                        stopTimer();
+                        $('input[type="radio"]').prop('disabled', true); // Disable options
+                    }
                 }
             });
 
@@ -216,13 +223,17 @@
 
             // Scroll to the corresponding question when a number is clicked
             $('.question-number').on('click', function() {
+                if (!timerStarted) {
+                    alert("Please start the timer before answering questions.");
+                    return;
+                }
+
                 var questionId = $(this).attr('id').replace('q', '');
                 var questionElement = $('div[data-question="' + questionId + '"]');
 
                 // Scroll the questions container to the question
                 $('.questions-container').animate({
-                    scrollTop: $('.questions-container').scrollTop() + questionElement.position()
-                        .top - $('.questions-container').position().top
+                    scrollTop: $('.questions-container').scrollTop() + questionElement.position().top - $('.questions-container').position().top
                 }, 600);
             });
         });
