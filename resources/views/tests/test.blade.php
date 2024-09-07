@@ -3,62 +3,74 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-       <!-- Timer and Attempt Counter Bar -->
-       <div class="row mb-3">
-        <div class="col-md-12">
-            <div class="timer-bar d-flex justify-content-between align-items-center p-3 bg-light border rounded">
-                <div>
-                    <button id="start-timer-btn" class="btn btn-primary">Start Timer</button>
-                </div>
-                <div>
-                    <span id="timer-display">Time: 00:00</span>
-                </div>
-                <div>
-                    <span id="attempt-counter">0/100 Attempted</span>
+    {{-- <h1>Test</h1> --}}
+        <!-- Timer and Attempt Counter Bar -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <div class="timer-bar d-flex justify-content-between align-items-center p-3 bg-light border rounded">
+                    <div>
+                        <button id="start-timer-btn" class="btn btn-primary">Start Timer</button>
+                    </div>
+                    <div>
+                        <span id="timer-display">Time: 00:00</span>
+                    </div>
+                    <div>
+                        <span id="attempt-counter">0/100 Attempted</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 @stop
 
 @section('content')
     <div class="container">
-  
 
-        <div class="row">
-            <!-- Questions and Options (Scrollable Section) -->
-            <div class="col-md-8 questions-container">
-                @foreach ($questions as $question)
-                    <div class="question" data-question="{{ $question->id }}">
-                        <h4>{{ $loop->iteration }}: {{ $question->question }}</h4>
-                        <label>
-                            <input type="radio" name="question{{ $question->id }}" value="A" disabled>
-                            {{ $question->options['A'] }}
-                        </label><br>
-                        <label>
-                            <input type="radio" name="question{{ $question->id }}" value="B" disabled>
-                            {{ $question->options['B'] }}
-                        </label> <br>
-                        <label>
-                            <input type="radio" name="question{{ $question->id }}" value="C" disabled>
-                            {{ $question->options['C'] }}
-                        </label><br>
-                        <label>
-                            <input type="radio" name="question{{ $question->id }}" value="D" disabled>
-                            {{ $question->options['D'] }}
-                        </label>
-                    </div>
-                @endforeach
-            </div>
-
-            <div class="question-numbers-container">
-                <div class="question-numbers">
+        <!-- Form to submit the answers -->
+        <form id="test-form" action="{{ route('test.submit') }}" method="POST">
+            @csrf
+            <div class="row">
+                <!-- Questions and Options (Scrollable Section) -->
+                <div class="col-md-8 questions-container">
                     @foreach ($questions as $question)
-                        <div class="question-number" id="q{{ $question->id }}">{{ $loop->iteration }}</div>
+                        <div class="question" data-question="{{ $question->id }}">
+                            <h4>{{ $loop->iteration }}: {{ $question->question }}</h4>
+                            <label>
+                                <input type="radio" name="answers[{{ $question->id }}]" value="A" disabled>
+                                {{ $question->options['A'] }}
+                            </label><br>
+                            <label>
+                                <input type="radio" name="answers[{{ $question->id }}]" value="B" disabled>
+                                {{ $question->options['B'] }}
+                            </label> <br>
+                            <label>
+                                <input type="radio" name="answers[{{ $question->id }}]" value="C" disabled>
+                                {{ $question->options['C'] }}
+                            </label><br>
+                            <label>
+                                <input type="radio" name="answers[{{ $question->id }}]" value="D" disabled>
+                                {{ $question->options['D'] }}
+                            </label>
+                        </div>
                     @endforeach
                 </div>
+
+                <div class="question-numbers-container">
+                    <div class="question-numbers">
+                        @foreach ($questions as $question)
+                            <div class="question-number" id="q{{ $question->id }}">{{ $loop->iteration }}</div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <!-- Hidden inputs to store correct answers -->
+            @foreach ($questions as $question)
+                <input type="text" name="correct_answers[{{ $question->id }}]" value="{{ $question->correct_answer }}">
+            @endforeach
+
+            <!-- Submit Button -->
+            <button type="submit" id="submit-test-btn" class="btn btn-success" style="display:none">Submit Answer</button>
+        </form>
     </div>
 @stop
 
@@ -167,12 +179,14 @@
             let attempted = 0;
             const totalQuestions = {{ count($questions) }};
             let timerStarted = false;
+            let timerRunning = false;
 
             // Update the timer display
             function updateTimerDisplay() {
                 let minutes = Math.floor(totalTime / 60);
                 let seconds = totalTime % 60;
-                $('#timer-display').text(`Time: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
+                $('#timer-display').text(
+                    `Time: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
             }
 
             // Start the timer
@@ -181,11 +195,13 @@
                     totalTime++;
                     updateTimerDisplay();
                 }, 1000);
+                timerRunning = true;
             }
 
             // Stop the timer
             function stopTimer() {
                 clearInterval(timerInterval);
+                timerRunning = false;
             }
 
             // Toggle between start and stop
@@ -194,7 +210,8 @@
                     $(this).text('Stop Timer');
                     timerStarted = true;
                     startTimer();
-                    $('input[type="radio"]').prop('disabled', false); // Enable options after the timer starts
+                    $('input[type="radio"]').prop('disabled',
+                    false); // Enable options after the timer starts
                 } else {
                     // Check if there are any unanswered questions
                     if (attempted < totalQuestions) {
@@ -202,11 +219,19 @@
                             $(this).text('Submit Answer');
                             stopTimer();
                             $('input[type="radio"]').prop('disabled', true); // Disable options
+                            $('#submit-test-btn').show(); // Show submit button
+                            $('#test-form').attr('action',
+                            '{{ route('test.submit') }}'); // Set form action to submit
+                            $('#test-form').submit(); // Submit the form
                         }
                     } else {
                         $(this).text('Submit Answer');
                         stopTimer();
                         $('input[type="radio"]').prop('disabled', true); // Disable options
+                        $('#submit-test-btn').show(); // Show submit button
+                        $('#test-form').attr('action',
+                        '{{ route('test.submit') }}'); // Set form action to submit
+                        $('#test-form').submit(); // Submit the form
                     }
                 }
             });
@@ -233,8 +258,20 @@
 
                 // Scroll the questions container to the question
                 $('.questions-container').animate({
-                    scrollTop: $('.questions-container').scrollTop() + questionElement.position().top - $('.questions-container').position().top
+                    scrollTop: $('.questions-container').scrollTop() + questionElement.position()
+                        .top - $('.questions-container').position().top
                 }, 600);
+            });
+
+            // Handle form submission
+            $('#test-form').on('submit', function(e) {
+                if (timerRunning) {
+                    e.preventDefault();
+                    if (confirm(
+                        "You are still in the middle of the test. Are you sure you want to submit?")) {
+                        $(this).off('submit').submit(); // Submit the form if confirmed
+                    }
+                }
             });
         });
     </script>

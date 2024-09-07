@@ -28,6 +28,10 @@ Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('
 
 
 Route::get('/test',[TestController::class , 'index'])->name('test.index');
+Route::post('/test/submit', [TestController::class, 'submit'])->name('test.submit');
+
+// Route::get('/test/submit', [TestController::class, 'submit'])->name('test.submit');
+
 // Route::get('/testcourse/create',[TestCourseController::class , 'create'])->name('testcourse.create');
 // Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('testcourse.store');
 
