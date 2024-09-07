@@ -4,22 +4,22 @@
 
 @section('content_header')
     {{-- <h1>Test</h1> --}}
-        <!-- Timer and Attempt Counter Bar -->
-        <div class="row mb-3">
-            <div class="col-md-12">
-                <div class="timer-bar d-flex justify-content-between align-items-center p-3 bg-light border rounded">
-                    <div>
-                        <button id="start-timer-btn" class="btn btn-primary">Start Timer</button>
-                    </div>
-                    <div>
-                        <span id="timer-display">Time: 00:00</span>
-                    </div>
-                    <div>
-                        <span id="attempt-counter">0/100 Attempted</span>
-                    </div>
+    <!-- Timer and Attempt Counter Bar -->
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="timer-bar d-flex justify-content-between align-items-center p-3 bg-light border rounded">
+                <div>
+                    <button id="start-timer-btn" class="btn btn-primary">Start Timer</button>
+                </div>
+                <div>
+                    <span id="timer-display">Time: 00:00</span>
+                </div>
+                <div>
+                    <span id="attempt-counter">0/100 Attempted</span>
                 </div>
             </div>
         </div>
+    </div>
 @stop
 
 @section('content')
@@ -62,11 +62,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Hidden inputs to store correct answers -->
-            @foreach ($questions as $question)
-                <input type="text" name="correct_answers[{{ $question->id }}]" value="{{ $question->correct_answer }}">
-            @endforeach
 
             <!-- Submit Button -->
             <button type="submit" id="submit-test-btn" class="btn btn-success" style="display:none">Submit Answer</button>
@@ -211,7 +206,7 @@
                     timerStarted = true;
                     startTimer();
                     $('input[type="radio"]').prop('disabled',
-                    false); // Enable options after the timer starts
+                        false); // Enable options after the timer starts
                 } else {
                     // Check if there are any unanswered questions
                     if (attempted < totalQuestions) {
@@ -221,7 +216,7 @@
                             $('input[type="radio"]').prop('disabled', true); // Disable options
                             $('#submit-test-btn').show(); // Show submit button
                             $('#test-form').attr('action',
-                            '{{ route('test.submit') }}'); // Set form action to submit
+                                '{{ route('test.submit') }}'); // Set form action to submit
                             $('#test-form').submit(); // Submit the form
                         }
                     } else {
@@ -230,7 +225,7 @@
                         $('input[type="radio"]').prop('disabled', true); // Disable options
                         $('#submit-test-btn').show(); // Show submit button
                         $('#test-form').attr('action',
-                        '{{ route('test.submit') }}'); // Set form action to submit
+                            '{{ route('test.submit') }}'); // Set form action to submit
                         $('#test-form').submit(); // Submit the form
                     }
                 }
@@ -264,14 +259,19 @@
             });
 
             // Handle form submission
-            $('#test-form').on('submit', function(e) {
-                if (timerRunning) {
-                    e.preventDefault();
-                    if (confirm(
-                        "You are still in the middle of the test. Are you sure you want to submit?")) {
-                        $(this).off('submit').submit(); // Submit the form if confirmed
-                    }
-                }
+            // $('#test-form').on('submit', function(e) {
+            //     if (timerRunning) {
+            //         e.preventDefault();
+            //         if (confirm(
+            //             "You are still in the middle of the test. Are you sure you want to submit?")) {
+            //             $(this).off('submit').submit(); // Submit the form if confirmed
+            //         }
+            //     }
+            // });
+
+            $('#test-form').on('submit', function() {
+                // Ensure all radio buttons are enabled before submitting the form
+                $('input[type="radio"]').prop('disabled', false);
             });
         });
     </script>

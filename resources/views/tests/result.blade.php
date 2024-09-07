@@ -11,19 +11,27 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>Your Results</h3>
+                <p><strong>Total Score:</strong> {{ $score }} out of 100</p>
                 <div class="list-group">
                     @foreach ($results as $result)
                         <div class="list-group-item">
                             <h4 class="list-group-item-heading">{{ $result['question'] }}</h4>
                             <ul class="list-group">
                                 @foreach ($result['options'] as $key => $option)
-                                    <li class="list-group-item">
+                                    <li class="list-group-item 
+                                        @if ($key === $result['correct_answer']) bg-success @endif 
+                                        @if ($key === $result['user_answer'] && $result['user_answer'] !== $result['correct_answer']) bg-danger @endif">
                                         <strong>{{ $key }}:</strong> {{ $option }}
                                     </li>
                                 @endforeach
                             </ul>
-                            <p><strong>Your Answer:</strong> {{ $result['user_answer'] }}</p>
-                            <p><strong>Correct Answer:</strong> {{ $result['correct_answer'] }}</p>
+                            <p><strong>Your Answer:</strong> 
+                                <span class="@if($result['user_answer'] === $result['correct_answer']) text-success @else text-danger @endif">
+                                    {{ $result['user_answer'] }}
+                                </span>
+                            </p>
+                            <p><strong>Correct Answer:</strong> <span class="text-success">{{ $result['correct_answer'] }}</span></p>
+                            <p><strong>Reason for Correct Answer:</strong> {{ $result['reason'] }}</p>
                         </div>
                     @endforeach
                 </div>
@@ -36,6 +44,18 @@
     <style>
         .list-group-item {
             margin-bottom: 20px;
+        }
+        .bg-success {
+            background-color: #104d1e !important;
+        }
+        .bg-danger {
+            background-color: #e92f3f !important;
+        }
+        .text-success {
+            color: #28a745 !important;
+        }
+        .text-danger {
+            color: #dc3545 !important;
         }
     </style>
 @stop
