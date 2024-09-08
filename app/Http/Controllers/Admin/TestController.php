@@ -60,7 +60,7 @@ class TestController extends Controller
         $correctAnswer = $question->answer;
         $userAnswer = $userAnswers[$question->id];
 
-        $results[] = [
+        $data['results'][] = [
             'question' => $question->question,
             'options' => $question->options,
             'user_answer' => $userAnswer,
@@ -75,11 +75,13 @@ class TestController extends Controller
     }
 
     // Calculate total score
-    $totalQuestions = count($questions);
-    $score = ($correctCount / $totalQuestions) * 100;
+    // $totalQuestions = count($questions);
+    $totalQuestions =100 ;
+    $data['score'] = ($correctCount / $totalQuestions) * 100;
 
     // Pass score and results to the view
-    return view('tests.result', compact('results', 'score'));
+    // return view('tests.result', compact('results', 'score'));
+    return view('tests.result',$data);
 }
 
     
