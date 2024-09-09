@@ -316,12 +316,16 @@ return [
             'can' => 'manage-blog',
         ],
         [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
+            'text' => 'Home',
+            'url' => 'dashboard/',
+            'icon' => 'fas fa-fw fa-lock',
         ],
+        [
+            'text' => 'Explore Course',
+            'url' => 'explore-course/',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        
         ['header' => 'account_settings'],
         [
             'text' => 'Test Level',
