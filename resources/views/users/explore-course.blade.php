@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Explore Course')
 
 @section('content_header')
 @stop
@@ -67,8 +67,8 @@
 
         <div class="row mt-4">
             @foreach ([
-            ['+2 (Science)', '/explore/45/CA-Foundation', 'https://exam.neb.gov.np/assets/img/icons/neb_logo.jpg'],
-            ['+2 (Management)', '/explore/70/GRE', 'https://exam.neb.gov.np/assets/img/icons/neb_logo.jpg'],
+            ['+2 (Science)', '/plus-2-science', 'https://exam.neb.gov.np/assets/img/icons/neb_logo.jpg'],
+            ['+2 (Management)', '/plus-2-management', 'https://exam.neb.gov.np/assets/img/icons/neb_logo.jpg'],
             ['Bachelor (CMAT)', '/explore/33/NEET', 'https://media.getmyuni.com/assets/images/articles/articles-883e0ec1e979063315b4586b82814914.webp'],
             ['Bachelor (IOE)', '/explore/32/JEE', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ2AT7cgxzifwKAxf0EipQhXscQ3NP8WUG2w&s'],
             ['Bachelor (MOE)', '/explore/42/GMAT', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1CT1lcInE-zPaBV6mqTIX1-EIDenU99Ifmg&s'],

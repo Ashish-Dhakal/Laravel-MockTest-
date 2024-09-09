@@ -17,3 +17,4 @@ Route::get('/explore-course', [App\Http\Controllers\ExploreCourseController::cla
 
 
 require __DIR__.'/admin.php';
+require __DIR__.'/entrance-course.php';
