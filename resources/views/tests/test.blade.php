@@ -71,7 +71,6 @@
 
 @section('css')
     <style>
-        /* Preserving all your previous CSS */
         .container {
             display: flex;
             justify-content: space-between;
@@ -82,20 +81,72 @@
             overflow-y: auto;
             flex: 1;
             padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            background-color: #f0f8ff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             margin-right: 20px;
         }
 
         .question {
             margin-bottom: 30px;
             padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #ffffff, #f9f9f9);
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-left: 5px solid #007bff;
         }
+
+        .question:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-left-color: #0056b3;
+        }
+
+        .question h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .question label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            position: relative;
+            padding-left: 30px;
+            /* Make space for the radio button */
+        }
+
+        /* Keep the radio button visible */
+        .question input[type="radio"] {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Hover effect */
+        .question label:hover {
+            background-color: #eaf4ff;
+            border-color: #007bff;
+        }
+
+        /* When the input is checked, change the label's background */
+        .question input[type="radio"]:checked+label {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
 
         .question.active {
             border-left-color: #28a745;
@@ -108,8 +159,8 @@
             width: 300px;
             background-color: #f1f1f1;
             padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             max-height: 80vh;
             overflow-y: auto;
             scroll-behavior: smooth;
@@ -132,17 +183,20 @@
             border-radius: 50%;
             font-size: 18px;
             transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .question-number:hover {
             background-color: #007bff;
             color: white;
             cursor: pointer;
+            transform: translateY(-3px);
         }
 
         .question-number.answered {
             background-color: #28a745;
             color: white;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -159,9 +213,10 @@
 
         /* New CSS for the timer bar */
         .timer-bar {
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+            padding: 10px;
         }
     </style>
 @stop

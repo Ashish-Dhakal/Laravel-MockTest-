@@ -50,6 +50,7 @@ class TestController extends Controller
 
     public function submit(Request $request)
 {
+    
     $questions = Question::whereIn('id', array_keys($request->input('answers')))->get();
     $userAnswers = $request->input('answers');
     

@@ -15,7 +15,7 @@
                 <div class="list-group">
                     @foreach ($results as $result)
                         <div class="list-group-item">
-                            <h4 class="list-group-item-heading">{{ $result['question'] }}</h4>
+                            <h4 class="list-group-item-heading"> {{$loop->iteration}}.) {{ $result['question'] }}</h4>
                             <ul class="list-group">
                                 @foreach ($result['options'] as $key => $option)
                                     <li class="list-group-item 
