@@ -3,115 +3,16 @@
 @section('title', '+2 Science')
 
 @section('content_header')
-    <h1>+2 Science</h1>
+    {{-- <h1>+2 Science</h1> --}}
 @stop
 
 @section('content')
-    <div class="container">
-        <div class="text-center mb-4">
-            <h3 class="fs-3 fw-bold">Explore</h3>
-            <p class="text-danger">Give Full Syllabus Science Test </p>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <div class="card shadow-sm ">
-                    <a href="" class="text-decoration-none text-dark">
-                        <div class="d-flex align-items-center p-3">
-                            <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
-                                class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
-                            <div class="flex-grow-1  px-3">+2 Science Test</div>
-                            <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                class="img-fluid" style="max-height: 25px;" alt="Chevron">
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div class="container d-flex flex-column align-items-center">
 
-
-
-
-        {{-- <div class="text-center mb-4 mt-lg-5">
-            <h3 class="fs-3 fw-bold ">Explore</h3>
-            <p class="text-danger">Give Individual Subject Test </p>
-        </div> --}}
-        {{-- <div class="row mt-4">
-            <div class="col-md-6">
-                <div class="card shadow-sm ">
-                    <a href="" class="text-decoration-none text-dark">
-                        <div class="d-flex align-items-center p-3">
-                            <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
-                                class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
-                            <div class="flex-grow-1  px-3">Physic</div>
-                            <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                class="img-fluid" style="max-height: 25px;" alt="Chevron">
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card shadow-sm ">
-                    <a href="" class="text-decoration-none text-dark">
-                        <div class="d-flex align-items-center p-3">
-                            <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
-                                class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
-                            <div class="flex-grow-1  px-3">Chemistry</div>
-                            <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                class="img-fluid" style="max-height: 25px;" alt="Chevron">
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card shadow-sm ">
-                    <a href="" class="text-decoration-none text-dark">
-                        <div class="d-flex align-items-center p-3">
-                            <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
-                                class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
-                            <div class="flex-grow-1  px-3">Biology</div>
-                            <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                class="img-fluid" style="max-height: 25px;" alt="Chevron">
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card shadow-sm ">
-                    <a href="" class="text-decoration-none text-dark">
-                        <div class="d-flex align-items-center p-3">
-                            <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
-                                class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
-                            <div class="flex-grow-1  px-3">Mathematics</div>
-                            <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                class="img-fluid" style="max-height: 25px;" alt="Chevron">
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card shadow-sm ">
-                    <a href="" class="text-decoration-none text-dark">
-                        <div class="d-flex align-items-center p-3">
-                            <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
-                                class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
-                            <div class="flex-grow-1  px-3">English</div>
-                            <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                class="img-fluid" style="max-height: 25px;" alt="Chevron">
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div> --}}
-
-
-
-        <div class="text-center mb-4 mt-lg-5">
+        <div class="text-center mb-4 mt-lg-5 pt-3">
             <h3 class="fs-3 fw-bold">Explore</h3>
             <p class="text-danger">More Subject Related Content </p>
         </div>
-
 
         <ul class="nav nav-pills nav-pill-tab mb-3" id="pills-tab" role="tablist">
             <li class="nav-item " role="presentation">
@@ -146,13 +47,13 @@
 
 
 
-        <div class="tab-content" id="pills-tabContent">
+        <div class="tab-content " id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-all-course" role="tabpanel" aria-labelledby="all-course-tab"
                 tabindex="0">
                 <div class="column mt-4">
                     <div class="col-md-6">
                         <div class="card shadow-sm ">
-                            <a href="" class="text-decoration-none text-dark">
+                            <a href="{{route('plus2science.subject')}}" class="text-decoration-none text-dark">
                                 <div class="d-flex align-items-center p-3">
                                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
                                         class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
@@ -262,11 +163,6 @@
                             </a>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
             </div>
 
@@ -285,11 +181,25 @@
 
 
 
-
-
-
-
-
+        <div class="text-center mt-4">
+            <h3 class="fs-3 fw-bold">Explore</h3>
+            <p class="text-danger">Give Full Syllabus Science Test </p>
+        </div>
+        <div class="row mt-4  w-75">
+            <div class="col-md-12 ">
+                <div class="card shadow-sm ">
+                    <a href="" class="text-decoration-none text-dark">
+                        <div class="d-flex align-items-center p-3">
+                            <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
+                                class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
+                            <div class="flex-grow-1  px-3">+2 Science Test</div>
+                            <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
+                                class="img-fluid" style="max-height: 25px;" alt="Chevron">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -303,153 +213,143 @@
             <div class="text-center mb-4">
                 <h2>Explore videos, notes and tests for Free</h2>
             </div>
-    
+
             <div class="d-flex justify-content-around flex-wrap explore-wrapper">
                 <!-- Card 1: Video Lectures -->
-                <div class="card explore-card">
+                <div class="card explore-card ">
                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/video.png" alt="Video Lectures">
                     <div class="card-number">850+</div>
                     <div class="card-title">Video Lectures</div>
-                    <a href="/course/videos/33/NEET" target="_blank" class="btn btn-primary">View All Videos</a>
+                    <a href="/course/videos/33/NEET" target="_blank" class="btn btn-primary text-white">View All
+                        Videos</a>
                 </div>
-    
+
                 <!-- Card 2: Revision Notes -->
                 <div class="card explore-card">
                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/essay.png" alt="Revision Notes">
                     <div class="card-number">2500+</div>
                     <div class="card-title">Revision Notes</div>
-                    <a href="/course/docs/33/NEET" target="_blank" class="btn btn-primary">View All Docs</a>
+                    <a href="/course/docs/33/NEET" target="_blank" class="btn btn-primary text-white">View All Docs</a>
                 </div>
-    
+
                 <!-- Card 3: Online Tests -->
                 <div class="card explore-card">
                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/exam.png" alt="Online Tests">
                     <div class="card-number">600+</div>
                     <div class="card-title">Online Tests</div>
-                    <a href="/course/test/33/NEET" target="_blank" class="btn btn-primary">View All Tests</a>
+                    <a href="/course/test/33/NEET" target="_blank" class="btn btn-primary text-white">View All Tests</a>
                 </div>
-    
+
                 <!-- Card 4: Doubts Solved -->
                 <div class="card explore-card">
                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/qa.png" alt="Doubts Solved">
                     <div class="card-number">10,000+</div>
                     <div class="card-title">Doubts Solved</div>
-                    <a href="/course/questions/33/NEET" target="_blank" class="btn btn-primary">View All Questions</a>
+                    <a href="/course/questions/33/NEET" target="_blank" class="btn btn-primary text-white">View All
+                        Questions</a>
                 </div>
             </div>
         </div>
-        
-
-       
-        
-        
 
     </div>
 @stop
 
 @section('css')
-<style>
+    <style>
+        /* Tab Buttons Styling */
+        .nav-pill-tab .nav-link {
+            color: #495057;
+            font-weight: 500;
+            border-radius: 30px;
+            background-color: #e9ecef;
+            padding: 10px 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
 
-/* Tab Buttons Styling */
-.nav-pill-tab .nav-link {
-    color: #495057;
-    font-weight: 500;
-    border-radius: 30px;
-    background-color: #e9ecef;
-    padding: 10px 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
+        .nav-pill-tab .nav-link.active {
+            background-color: #007bff;
+            color: white;
+        }
 
-.nav-pill-tab .nav-link.active {
-    background-color: #007bff;
-    color: white;
-}
+        .nav-pill-tab .nav-link:hover {
+            /* background-color: #0056b3; */
+            color: white;
+            transform: scale(1.05);
+        }
 
-.nav-pill-tab .nav-link:hover {
-    /* background-color: #0056b3; */
-    color: white;
-    transform: scale(1.05);
-}
+        /* Card Container Styling */
+        .column {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            width: auto;
+        }
 
-/* Card Container Styling */
-.column {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: space-between;
-}
+        /* Individual Card Styling */
+        .card {
+            transition: box-shadow 0.3s, transform 0.3s;
+            border: none;
+            border-radius: 10px;
+        }
 
-/* Individual Card Styling */
-.card {
-    transition: box-shadow 0.3s, transform 0.3s;
-    border: none;
-    border-radius: 10px;
-}
+        .card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
 
-.card:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px);
-}
+        /* Card Content Styling */
+        .card img {
+            max-height: 60px;
+            border-radius: 5px;
+            object-fit: contain;
+        }
 
-/* Card Content Styling */
-.card img {
-    max-height: 60px;
-    border-radius: 5px;
-    object-fit: contain;
-}
+        .card .d-flex {
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.card .d-flex {
-    justify-content: space-between;
-    align-items: center;
-}
+        .card .flex-grow-1 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #495057;
+        }
 
-.card .flex-grow-1 {
-    font-size: 18px;
-    font-weight: 500;
-    color: #495057;
-}
+        .card a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-.card a {
-    color: inherit;
-    text-decoration: none;
-}
+        /* Spacing for better readability */
+        .card .p-3 {
+            padding: 15px;
+        }
 
-/* Spacing for better readability */
-.card .p-3 {
-    padding: 15px;
-}
+        /* Chevron Styling */
+        .card img:last-child {
+            max-height: 20px;
+            opacity: 0.7;
+        }
 
-/* Chevron Styling */
-.card img:last-child {
-    max-height: 20px;
-    opacity: 0.7;
-}
+        /* Responsive for Smaller Screens */
+        @media (max-width: 768px) {
+            .column {
+                flex-direction: column;
+            }
 
-/* Responsive for Smaller Screens */
-@media (max-width: 768px) {
-    .column {
-        flex-direction: column;
-    }
+            .nav-pill-tab .nav-link {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
 
-    .nav-pill-tab .nav-link {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    .card .flex-grow-1 {
-        font-size: 16px;
-    }
-}
-
-
+            .card .flex-grow-1 {
+                font-size: 16px;
+            }
+        }
 
 
-
-
-
-
-
-    .explore-card {
+        .explore-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none;
             background-color: #f9f9f9;
@@ -457,7 +357,8 @@
             border-radius: 10px;
             text-align: center;
             width: 22%;
-            height: 300px; /* Fixed card height */
+            height: 300px;
+            /* Fixed card height */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -470,7 +371,8 @@
 
         .explore-card img {
             width: 80px;
-            margin: 0 auto 10px auto; /* Image centered with margin auto */
+            margin: 0 auto 10px auto;
+            /* Image centered with margin auto */
         }
 
         .explore-card .card-number {
@@ -484,19 +386,9 @@
             color: #333;
         }
 
-        .explore-card .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            transition: background-color 0.3s ease;
-        }
-
-        .explore-card .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #004494;
-        }
-
         .explore-wrapper {
-            gap: 10px; /* Reduce space between cards */
+            gap: 10px;
+            /* Reduce space between cards */
         }
 
         /* Responsive Design */
@@ -517,7 +409,7 @@
                 width: 100%;
             }
         }
-</style>
+    </style>
 @stop
 
 @section('js')

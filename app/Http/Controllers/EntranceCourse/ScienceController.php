@@ -15,6 +15,10 @@ class ScienceController extends Controller
         return view('entrance-course.+2science.index');
     }
 
+    public function subject(){
+        return view('entrance-course.+2science.subject');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
