@@ -58,8 +58,7 @@
                                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
                                         class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
                                     <div class="flex-grow-1  px-3">Physic</div>
-                                    <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                        class="img-fluid" style="max-height: 25px;" alt="Chevron">
+                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
                                 </div>
                             </a>
                         </div>
@@ -71,8 +70,7 @@
                                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
                                         class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
                                     <div class="flex-grow-1  px-3">Chemistry</div>
-                                    <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                        class="img-fluid" style="max-height: 25px;" alt="Chevron">
+                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
                                 </div>
                             </a>
                         </div>
@@ -84,8 +82,7 @@
                                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
                                         class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
                                     <div class="flex-grow-1  px-3">Biology</div>
-                                    <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                        class="img-fluid" style="max-height: 25px;" alt="Chevron">
+                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
                                 </div>
                             </a>
                         </div>
@@ -98,8 +95,7 @@
                                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
                                         class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
                                     <div class="flex-grow-1  px-3">Mathematics</div>
-                                    <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                        class="img-fluid" style="max-height: 25px;" alt="Chevron">
+                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
                                 </div>
                             </a>
                         </div>
@@ -112,8 +108,7 @@
                                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
                                         class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
                                     <div class="flex-grow-1  px-3">English</div>
-                                    <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                        class="img-fluid" style="max-height: 25px;" alt="Chevron">
+                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
                                 </div>
                             </a>
                         </div>
@@ -131,8 +126,7 @@
                                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
                                         class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
                                     <div class="flex-grow-1  px-3">Daily Test For Science Preperation</div>
-                                    <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                        class="img-fluid" style="max-height: 25px;" alt="Chevron">
+                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
                                 </div>
                             </a>
                         </div>
@@ -144,8 +138,7 @@
                                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
                                         class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
                                     <div class="flex-grow-1  px-3">Science Mock Test 2025</div>
-                                    <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                        class="img-fluid" style="max-height: 25px;" alt="Chevron">
+                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
                                 </div>
                             </a>
                         </div>
@@ -157,8 +150,7 @@
                                     <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
                                         class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
                                     <div class="flex-grow-1  px-3">Topic Wise Mcq for Science Stream</div>
-                                    <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                        class="img-fluid" style="max-height: 25px;" alt="Chevron">
+                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
                                 </div>
                             </a>
                         </div>
@@ -193,8 +185,7 @@
                             <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
                                 class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
                             <div class="flex-grow-1  px-3">+2 Science Test</div>
-                            <img src="https://edurev.gumlet.io/cdn_assets/v313/assets/img/chevron-left.svg?w=50&amp;dpr=2.0"
-                                class="img-fluid" style="max-height: 25px;" alt="Chevron">
+                            <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
                         </div>
                     </a>
                 </div>

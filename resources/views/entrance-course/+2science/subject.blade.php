@@ -13,12 +13,10 @@
                 <div class="crs_hdr w-100">
                     <div class="row align-items-center">
                         <div class="col-sm-1 crs_img_cntnr">
-                            <!-- Reduced image size -->
                             <img class="img-fluid rounded" alt="Biology Class 11"
                                 src="https://edurev.gumlet.io/AllImages/original/ApplicationImages/CourseImages/f0e26ba5-f12c-483a-a8d8-c3b1a9dcc85e_CI.jpg?w=128&amp;dpr=2.0"
                                 width="80px" loading="lazy">
                         </div>
-                        <!-- Chapter name displayed next to image -->
                         <div class="col-sm-11">
                             <h3 class="mb-0">Biology Class 11</h3>
                         </div>
@@ -28,233 +26,246 @@
             </div>
         </div>
 
-
-        @foreach ([['Human Cell', 18, 5, 10, 'https://edurev.gumlet.io/cdn_assets/v313/assets/img/course/coursubopen_v2.png', 'https://edurev.gumlet.io/cdn_assets/v313/assets/img/course/coursubclose_v2.png'], ['Plant Cell', 20, 4, 8, 'https://edurev.gumlet.io/cdn_assets/v313/assets/img/course/coursubopen_v2.png', 'https://edurev.gumlet.io/cdn_assets/v313/assets/img/course/coursubclose_v2.png'], ['Microorganisms', 15, 3, 12, 'https://edurev.gumlet.io/cdn_assets/v313/assets/img/course/coursubopen_v2.png', 'https://edurev.gumlet.io/cdn_assets/v313/assets/img/course/coursubclose_v2.png']] as $chapter)
-            <div class="subject-box mb-3">
-                <div class="chapter-header collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#chapterContent{{ $loop->index }}" aria-expanded="false"
-                    aria-controls="chapterContent{{ $loop->index }}">
+        <!-- Loop for each chapter -->
+        @foreach ([['Human Cell', 18, 5, 10], ['Plant Cell', 20, 4, 8], ['Microorganisms', 15, 3, 12]] as $chapter)
+            <div class="subject-box mb-3 col-md-9">
+                <div class="chapter-header" data-bs-toggle="modal" data-bs-target="#chapterModal{{ $loop->index }}">
                     <span class="chapter-title">{{ $loop->iteration }}. {{ $chapter[0] }}</span>
                     <span class="chapter-count">
                         Docs ({{ $chapter[1] }}) | Videos ({{ $chapter[2] }}) | Tests ({{ $chapter[3] }})
                     </span>
-                    <img src="{{ $chapter[4] }}" class="arrow-icon open-icon" alt="Open">
-                    <img src="{{ $chapter[5] }}" class="arrow-icon close-icon" alt="Close">
+                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
                 </div>
+            </div>
 
-                <div id="chapterContent{{ $loop->index }}" class="collapse">
-                    <ul class="nav nav-tabs mt-3" id="subjectTab{{ $loop->index }}" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active mr-2" id="docs-tab{{ $loop->index }}" data-bs-toggle="tab"
-                                data-bs-target="#docs{{ $loop->index }}" type="button" role="tab"
-                                aria-controls="docs{{ $loop->index }}" aria-selected="false">
-                                Docs ({{ $chapter[1] }})
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link mr-2" id="videos-tab{{ $loop->index }}" data-bs-toggle="tab"
-                                data-bs-target="#videos{{ $loop->index }}" type="button" role="tab"
-                                aria-controls="videos{{ $loop->index }}" aria-selected="true">
-                                Videos ({{ $chapter[2] }})
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="tests-tab{{ $loop->index }}" data-bs-toggle="tab"
-                                data-bs-target="#tests{{ $loop->index }}" type="button" role="tab"
-                                aria-controls="tests{{ $loop->index }}" aria-selected="false">
-                                Tests ({{ $chapter[3] }})
-                            </button>
-                        </li>
-                    </ul>
 
-                    <!-- Tab Content -->
-                    <div class="tab-content mt-3" id="subjectTabContent{{ $loop->index }}">
-                        <!-- Videos Tab -->
-                        <div class="tab-pane fade" id="videos{{ $loop->index }}" role="tabpanel"
-                            aria-labelledby="videos-tab{{ $loop->index }}">
-                            <ul class="list-group">
-                                @foreach ([['https://via.placeholder.com/50', 'Introduction to Taxonomy (6:19 min)'], ['https://via.placeholder.com/50', 'Diversity in the Living World (3:54 min)']] as $video)
-                                    <li class="list-group-item">
-                                        <img src="{{ $video[0] }}" alt="Video Thumbnail">
-                                        {{ $video[1] }}
-                                    </li>
-                                @endforeach
-                            </ul>
+
+            <!-- Modal for each chapter -->
+            <div class="modal fade" id="chapterModal{{ $loop->index }}" tabindex="-1"
+                aria-labelledby="chapterModalLabel{{ $loop->index }}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable"
+                    style="padding-left: 100px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="chapterModalLabel{{ $loop->index }}">{{ $chapter[0] }} Details
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-
-                        <!-- Docs Tab -->
-                        <div class="tab-pane fade show active" id="docs{{ $loop->index }}" role="tabpanel"
-                            aria-labelledby="docs-tab{{ $loop->index }}">
-                            <ul class="list-group">
-                                @foreach ([['https://via.placeholder.com/50', 'Mindmap: The Living World (1 page)'], ['https://via.placeholder.com/50', 'Flashcards: The Living World']] as $doc)
-                                    <li class="list-group-item">
-                                        <img src="{{ $doc[0] }}" alt="Doc Thumbnail">
-                                        {{ $doc[1] }}
-                                    </li>
-                                @endforeach
+                        <div class="modal-body bg-light">
+                            <ul class="nav nav-tabs border-0" id="chapterTab{{ $loop->index }}" role="tablist">
+                                <li class="nav-item">
+                                    <button class="nav-link active rounded-pill" id="docs-tab{{ $loop->index }}"
+                                        data-bs-toggle="tab" data-bs-target="#docs{{ $loop->index }}" type="button"
+                                        role="tab" aria-controls="docs{{ $loop->index }}" aria-selected="true">
+                                        Docs ({{ $chapter[1] }})
+                                    </button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link rounded-pill" id="videos-tab{{ $loop->index }}"
+                                        data-bs-toggle="tab" data-bs-target="#videos{{ $loop->index }}" type="button"
+                                        role="tab" aria-controls="videos{{ $loop->index }}" aria-selected="false">
+                                        Videos ({{ $chapter[2] }})
+                                    </button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link rounded-pill" id="tests-tab{{ $loop->index }}"
+                                        data-bs-toggle="tab" data-bs-target="#tests{{ $loop->index }}" type="button"
+                                        role="tab" aria-controls="tests{{ $loop->index }}" aria-selected="false">
+                                        Tests ({{ $chapter[3] }})
+                                    </button>
+                                </li>
                             </ul>
+
+                            <div class="tab-content mt-3" id="chapterTabContent{{ $loop->index }}">
+                                <!-- Docs Tab Content -->
+                                <div class="tab-pane fade show active" id="docs{{ $loop->index }}" role="tabpanel"
+                                    aria-labelledby="docs-tab{{ $loop->index }}">
+
+                                    <ul class="list-group">
+                                        @foreach ([['https://via.placeholder.com/50', 'Mindmap: The Living World (1 page)'], ['https://via.placeholder.com/50', 'Flashcards: The Living World']] as $doc)
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <div class="">
+                                                    <img src="{{ $doc[0] }}" alt="Doc Thumbnail" class="me-2 mr-1">
+                                                    {{ $doc[1] }}
+                                                </div>
+                                                <div>
+                                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
+
+                                                </div>
+
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                                <!-- Videos Tab Content -->
+                                <div class="tab-pane fade" id="videos{{ $loop->index }}" role="tabpanel"
+                                    aria-labelledby="videos-tab{{ $loop->index }}">
+                                    <ul class="list-group">
+                                        @foreach ([['https://via.placeholder.com/50', 'Introduction to Taxonomy (6:19 min)'], ['https://via.placeholder.com/50', 'Diversity in the Living World (3:54 min)']] as $video)
+                                            <li class="list-group-item d-flex justify-content-between  align-items-center">
+                                                <div>
+                                                    <img src="{{ $video[0] }}" alt="Video Thumbnail" class="me-2">
+                                                    {{ $video[1] }}
+                                                </div>
+                                                <div>
+                                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                                <!-- Tests Tab Content -->
+                                <div class="tab-pane fade" id="tests{{ $loop->index }}" role="tabpanel"
+                                    aria-labelledby="tests-tab{{ $loop->index }}">
+                                    <ul class="list-group">
+                                        @foreach ([['https://via.placeholder.com/50', 'Test: The Living World- 1 (20 questions | 20 min)'], ['https://via.placeholder.com/50', 'Test: Diversity in the Living World (15 questions | 15 min)']] as $test)
+                                            <li class="list-group-item d-flex justify-content-between  align-items-center">
+                                                <div>
+                                                    <img src="{{ $test[0] }}" alt="Test Thumbnail" class="me-2">
+                                                    {{ $test[1] }}
+                                                </div>
+                                                  <div>
+                                                    <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-
-                        <!-- Tests Tab -->
-                        <div class="tab-pane fade" id="tests{{ $loop->index }}" role="tabpanel"
-                            aria-labelledby="tests-tab{{ $loop->index }}">
-                            <ul class="list-group">
-                                @foreach ([['https://via.placeholder.com/50', 'Test: The Living World- 1 (20 questions | 20 min)'], ['https://via.placeholder.com/50', 'Test: Diversity in the Living World (15 questions | 15 min)']] as $test)
-                                    <li class="list-group-item">
-                                        <img src="{{ $test[0] }}" alt="Test Thumbnail">
-                                        {{ $test[1] }}
-                                    </li>
-                                @endforeach
-                            </ul>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         @endforeach
-
-
-
-
-
     </div>
 @stop
 
+
 @section('css')
     <style>
-        /* Container styling */
         .container {
-            max-width: auto;
-            margin: auto;
             padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-
-        /* Image and course title styling */
-        .crs_img_cntnr img {
-            border-radius: 10px;
-            width: 80px;
-        }
-
-        h3 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        /* Chapter Header Styling */
+        /* Chapter Header */
         .chapter-header {
             cursor: pointer;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background-color: #ffffff;
+            color: #333;
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
-            /* background-color: #e9ecef; */
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            transition: background-color 0.3s ease;
-            font-size: 1.1rem;
-            font-weight: bold;
+            transition: box-shadow 0.3s, transform 0.3s;
         }
 
         .chapter-header:hover {
-            background-color: #d8e2eb;
+            /* background-color: #e9ecef; */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .chapter-title {
+            font-size: 1.2rem;
         }
 
         .chapter-count {
             font-size: 0.9rem;
-            color: #555;
+            color: #666;
         }
 
-        .arrow-icon {
-            width: 20px;
-            height: 20px;
+        .dropdown-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
         }
 
-        .collapsed .open-icon {
-            display: none;
+        .dropdown-icon.open {
+            transform: rotate(180deg);
         }
 
-        .collapsed .close-icon {
-            display: block;
-        }
-
-        .open .open-icon {
-            display: block;
-        }
-
-        .open .close-icon {
-            display: none;
-        }
-
-        /* Nav Tabs Styling */
-        .nav-tabs {
-            border-bottom: none;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
+        /* Nav Tabs */
         .nav-tabs .nav-link {
+            font-weight: 600;
+            color: #007bff;
             border-radius: 20px;
-            padding: 10px 25px;
-            background-color: #e9ecef;
-            border: 1px solid #ccc;
-            margin-right: 10px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .nav-tabs .nav-link:hover {
-            background-color: #007bff;
-            color: white;
+            margin: 0 5px;
+            border: 1px solid transparent;
+            border-bottom: 0px;
         }
 
         .nav-tabs .nav-link.active {
+            color: #ffffff;
             background-color: #007bff;
-            color: white;
             border-color: #007bff;
         }
 
-        /* Tab content styling */
-        .tab-content {
+        /* List Group Items */
+        .list-group-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-radius: 10px;
+            background-color: #ffffff;
             margin-top: 20px;
         }
 
-        /* List item styling with image on left */
-        .list-group-item {
-            display: flex;
-            align-items: center;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 15px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+        .list-group-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .list-group-item img {
-            width: 50px;
-            height: 50px;
-            margin-right: 15px;
+            width: 60px;
+            height: 60px;
             object-fit: cover;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
 
-        .list-group-item:hover {
-            background-color: #f1f3f5;
-            transform: scale(1.02);
+        /* Modal */
+        .modal-content {
+            border-radius: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .modal-header,
+        .modal-footer {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .modal-body {
+            padding: 20px;
         }
     </style>
 @stop
 
 @section('js')
     <script>
-        document.querySelectorAll('.chapter-header').forEach(function(header) {
-            header.addEventListener('click', function() {
-                const parent = this;
-                parent.classList.toggle('open');
+        document.querySelectorAll('.chapter-header').forEach(function(chapterHeader) {
+            chapterHeader.addEventListener('click', function() {
+                const openIcon = this.querySelector('.open-icon');
+                const closeIcon = this.querySelector('.close-icon');
+                const isOpen = openIcon.style.display === 'none';
+
+                if (isOpen) {
+                    openIcon.style.display = 'block';
+                    closeIcon.style.display = 'none';
+                } else {
+                    openIcon.style.display = 'none';
+                    closeIcon.style.display = 'block';
+                }
             });
         });
     </script>
