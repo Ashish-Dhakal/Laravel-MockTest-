@@ -9,9 +9,31 @@
 @section('content')
     <div class="container d-flex flex-column align-items-center">
 
-        <div class="text-center mb-4 mt-lg-5 pt-3">
+
+        <div class="text-center mt-4">
+            <h3 class="fs-3 fw-bold">Mock Test</h3>
+            <p class="text-danger"> For Full +2 Science</p>
+        </div>
+        <div class="row mt-4  w-75">
+            <div class="col-md-12 ">
+                <div class="card shadow-sm ">
+                    <a href="{{route('test.info')}}" class="text-decoration-none text-dark">
+                        <div class="d-flex align-items-center p-3">
+                            <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
+                                class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
+                            <div class="flex-grow-1  px-3">+2 Science Test</div>
+                            <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="text-center mb-4 mt-lg-3">
             <h3 class="fs-3 fw-bold">Explore</h3>
-            <p class="text-danger">More Subject Related Content </p>
+            <p class="text-danger">More Subject Wise Related Content </p>
         </div>
 
         <ul class="nav nav-pills nav-pill-tab mb-3" id="pills-tab" role="tablist">
@@ -171,26 +193,6 @@
             </div>
         </div>
 
-
-
-        <div class="text-center mt-4">
-            <h3 class="fs-3 fw-bold">Explore</h3>
-            <p class="text-danger">Give Full Syllabus Science Test </p>
-        </div>
-        <div class="row mt-4  w-75">
-            <div class="col-md-12 ">
-                <div class="card shadow-sm ">
-                    <a href="" class="text-decoration-none text-dark">
-                        <div class="d-flex align-items-center p-3">
-                            <img src="https://edurev.gumlet.io/cdn_lib/v10/lib/img/explore/explr_clss.png?w=100&amp;dpr=2.0"
-                                class="img-fluid me-3" style="max-height: 50px;" alt="+2 Science">
-                            <div class="flex-grow-1  px-3">+2 Science Test</div>
-                            <img src="{{ asset('assets/icon-image/chevron-forward-outline.svg') }}" alt="Toggle Dropdown" style="width: 24px; height: 24px;">
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
 
 
 

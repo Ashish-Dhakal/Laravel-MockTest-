@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         // Seed Users
         User::factory()->create([
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'email' => 'ashish@test.com',
         ]);
 
         $faker = \Faker\Factory::create();

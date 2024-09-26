@@ -16,6 +16,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::middleware('auth')->group(function()
+{
+
 // route for test level or category 
 
 Route::get('/testlevel',[TestLevelController::class , 'index'])->name('testlevel.index');
@@ -29,6 +32,7 @@ Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('
 
 Route::get('/test',[TestController::class , 'index'])->name('test.index');
 Route::post('/test/submit', [TestController::class, 'submit'])->name('test.submit');
+Route::get('/test/test-info', [TestController::class, 'testInfo'])->name('test.info');
 
 // Route::get('/test/submit', [TestController::class, 'submit'])->name('test.submit');
 
@@ -45,3 +49,6 @@ Route::post('/question/store',[QuestionController::class , 'store'])->name('ques
 
 
 
+
+
+});

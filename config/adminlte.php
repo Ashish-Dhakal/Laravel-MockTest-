@@ -325,6 +325,11 @@ return [
             'url' => 'explore-course/',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        [
+            'text' => 'Profile',
+            'url' => 'user-profile',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
         
         ['header' => 'account_settings'],
         [

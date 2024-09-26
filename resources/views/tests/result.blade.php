@@ -15,7 +15,7 @@
                 <div class="list-group">
                     @foreach ($results as $result)
                         <div class="list-group-item">
-                            <h4 class="list-group-item-heading"> {{$loop->iteration}}.) {{ $result['question'] }}</h4>
+                            <h4 class="list-group-item-heading">{{ $loop->iteration }}.) {{ $result['question'] }}</h4>
                             <ul class="list-group">
                                 @foreach ($result['options'] as $key => $option)
                                     <li class="list-group-item 
@@ -46,22 +46,12 @@
             margin-bottom: 20px;
         }
         .bg-success {
-            background-color: #104d1e !important;
+            background-color: #28a745 !important;
+            color: white !important;
         }
         .bg-danger {
-            background-color: #e92f3f !important;
-        }
-        .text-success {
-            color: #28a745 !important;
-        }
-        .text-danger {
-            color: #dc3545 !important;
+            background-color: #dc3545 !important;
+            color: white !important;
         }
     </style>
-@stop
-
-@section('js')
-    <script>
-        // Any custom JS for the results page
-    </script>
 @stop
