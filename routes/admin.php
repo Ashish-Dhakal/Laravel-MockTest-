@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function()
 
 // route for test level or category 
 
-Route::get('/testlevel',[TestLevelController::class , 'index'])->name('testlevel.index');
+Route::get('/mockTest-level',[TestLevelController::class , 'index'])->name('testlevel.index');
 Route::get('/testlevel/create',[TestLevelController::class , 'create'])->name('testlevel.create');
 Route::post('/testlevel/store',[TestLevelController::class , 'store'])->name('testlevel.store');
 
@@ -35,7 +35,6 @@ Route::post('/test/submit', [TestController::class, 'submit'])->name('test.submi
 Route::get('/test/test-info', [TestController::class, 'testInfo'])->name('test.info');
 
 // Route::get('/test/submit', [TestController::class, 'submit'])->name('test.submit');
-
 // Route::get('/testcourse/create',[TestCourseController::class , 'create'])->name('testcourse.create');
 // Route::post('/testcourse/store',[TestCourseController::class , 'store'])->name('testcourse.store');
 

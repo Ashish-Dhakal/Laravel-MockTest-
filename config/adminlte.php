@@ -325,16 +325,12 @@ return [
             'url' => 'explore-course/',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        [
-            'text' => 'Profile',
-            'url' => 'user-profile',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+       
         
         ['header' => 'account_settings'],
         [
-            'text' => 'Test Level',
-            'url' => 'testlevel/',
+            'text' => 'Mock Test Level',
+            'url' => 'mockTest-level/',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

@@ -85,6 +85,9 @@ class TestController extends Controller
     return view('tests.result',$data);
 }
 
+public function testInfo(){
+    return view('tests.testinfo');
+}
     
     
     
